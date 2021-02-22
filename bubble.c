@@ -3,6 +3,7 @@
 void add(int *array0, int size);
 void print(int *array1, int size);
 void swap(int *array2, int size);
+void element_swap(int *a, int *b);
 int main(void)
 {
     int array_size;
@@ -39,7 +40,9 @@ void print(int *array1, int size)
 }
 void swap(int *array2, int size)
 {
-    int i, j, temp;
+    int i, j;
+    // 22/02/2021 : fixing this logical bubble sort issue and adding function to swap
+    /* before this correction , the code was like that :
     for(j = 0 ; j < size-1 ; j++)
     {
         for(i = 0 ; i < size-1 ; i++)
@@ -51,6 +54,22 @@ void swap(int *array2, int size)
                 array2[i+1] = temp;
             }
         }
+    } */
+    // now fixing issue :
+        for(j = 0 ; j < size-1 ; j++)
+    {
+        for(i = 0 ; i < size -j - 1 ; i++)
+        {
+            if(array2[i] > array2[i+1])
+            {
+                element_swap(&array2[i], &array2[i+1]);
+            }
+        }
     }
 }
-
+void element_swap(int *a, int *b)
+{
+        int temp = *a;
+        *a = *b;
+        *b = temp;
+}
