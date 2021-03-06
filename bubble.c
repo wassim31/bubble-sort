@@ -4,9 +4,11 @@ void add(int *array0, int size);
 void print(int *array1, int size);
 int swap(int *array2, int size);
 void element_swap(int *a, int *b);
+
 int check = 0; // for checking if the function element_swap is called
 int main(void)
 {
+
     int array_size;
 
     printf("Enter the size of array\n");
@@ -33,11 +35,11 @@ int main(void)
 }
 void add(int *array0, int size)
 {
-    printf("add %d values to your array:\n", size);
-    int i;
-    for(i = 0 ; i < size ; i++)
+        // opening the file which contain the data-set
+    FILE *my_file = fopen("test.txt", "r");
+    for(int i = 0 ; i < size ; i++)
     {
-        scanf("%d", &array0[i]);
+         fscanf(my_file, "%d", &array0[i]);
     }
 }
 void print(int *array1, int size)
